@@ -1,0 +1,18 @@
+
+Hips
+RightUpperLeg, 
+RightLowerLeg, 
+RightFoot
+LeftUpperLeg, 
+LeftLowerLeg, 
+LeftFoot
+Spine - recalculated in main.py
+Chest  8
+Neck  9
+Head  10 - recalculated in main.py  - need to check not sure yet
+RightUpperArm, 
+RightLowerArm, 
+RightHand
+LeftUpperArm, 
+LeftLowerArm, 
+LeftHand

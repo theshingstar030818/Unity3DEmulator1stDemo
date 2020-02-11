@@ -1,0 +1,6 @@
+
+
+Assets/pos_data/3dposapp-pos_sample_video.txt
+
+Assets/pos_data/lightweight-pos_sample_socket1.txt
+
