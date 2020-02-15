@@ -471,8 +471,8 @@ namespace SA
 				string prefix = (i == 0) ? "L " : "R ";
 
 				_FingerBoneField( prefix + "Thumb", ref fingerBones.thumb, true );
-				EditorGUILayout.Separator();
 				_FingerBoneField( prefix + "Index", ref fingerBones.index, true );
+				EditorGUILayout.Separator();
 				EditorGUILayout.Separator();
 				_FingerBoneField( prefix + "Middle", ref fingerBones.middle, true );
 				EditorGUILayout.Separator();

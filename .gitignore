@@ -6,7 +6,8 @@
 /Assets/AssetStoreTools*
 /Temp02/
 /obj/
-
+/Assets/test02/
+/Assets/test*
 # Visual Studio 2015 cache directory
 /.vs/
 

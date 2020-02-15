@@ -45,6 +45,7 @@ public class Pos_txt_Reader : MonoBehaviour
     Transform[] bone_t; // モデルのボーンのTransform
     Transform[] cube_t; // デバック表示用のCubeのTransform
     Vector3 init_position; // 初期のセンターの位置
+    Vector3 before_position; // before position to smooth
     Quaternion[] init_rot; // 初期の回転値
     Quaternion[] init_inv; // 初期のボーンの方向から計算されるクオータニオンのInverse
     List<Vector3[]> pos; // pos.txtのデータを保持するコンテナ
@@ -146,6 +147,7 @@ public class Pos_txt_Reader : MonoBehaviour
         init_inv[0] = Quaternion.Inverse(Quaternion.LookRotation(init_forward));
 
         init_position = bone_t[0].position;
+        before_position = init_position;
         init_rot[0] = bone_t[0].rotation;
         for (int i = 0; i < bones.Length; i++)
         {
@@ -275,10 +277,12 @@ public class Pos_txt_Reader : MonoBehaviour
 
         //Vector3[] now_pos = vs;
         Vector3[] now_pos = pos[frame];
+        
 
 
         // センターの移動と回転
         Vector3 pos_forward = TriangleNormal(now_pos[7], now_pos[4], now_pos[1]);
+
         bone_t[0].position = now_pos[0] * scale_ratio + new Vector3(init_position.x, heal_position, init_position.z);
         bone_t[0].rotation = Quaternion.LookRotation(pos_forward) * init_rot[0];
 
@@ -293,5 +297,6 @@ public class Pos_txt_Reader : MonoBehaviour
         // 顔の向きを上げる調整。両肩を結ぶ線を軸として回転
         bone_t[8].rotation = Quaternion.AngleAxis(head_angle, bone_t[11].position - bone_t[14].position) * bone_t[8].rotation;
 
+        before_position = now_pos[0]; // to smooth
     }
 }
